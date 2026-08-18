@@ -1,0 +1,532 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: #00040b;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   LLUVIA DE 1 Y 0
+========================================= */
+
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #03142a,
+            #00040b 70%
+        );
+}
+
+
+/* =========================================
+   PANTALLAS
+========================================= */
+
+.pantalla {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+.pantalla.activa {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* =========================================
+   CUENTA REGRESIVA
+========================================= */
+
+.inicio-contenido {
+    text-align: center;
+}
+
+.inicio-contenido p {
+    font-size: 11px;
+    letter-spacing: 6px;
+    color: #54caff;
+    margin-bottom: 25px;
+}
+
+#contador {
+    font-size: 130px;
+    font-weight: bold;
+
+    color: white;
+
+    text-shadow:
+        0 0 10px #00bfff,
+        0 0 30px #008cff,
+        0 0 70px #0066ff;
+
+    animation: pulso 1s infinite;
+}
+
+
+/* =========================================
+   HAPPY BIRTHDAY
+========================================= */
+
+.birthday-contenido {
+    text-align: center;
+    padding: 20px;
+}
+
+.pequeno {
+    display: block;
+
+    margin-bottom: 30px;
+
+    color: #59cfff;
+
+    font-size: 11px;
+    letter-spacing: 6px;
+}
+
+.birthday-contenido h1 {
+    font-size: clamp(55px, 11vw, 145px);
+
+    line-height: 0.85;
+
+    letter-spacing: 8px;
+
+    color: white;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 25px #00bfff,
+        0 0 55px #008cff,
+        0 0 90px #0055ff;
+
+    animation: aparecer 2s ease;
+}
+
+.birthday-contenido h1 span {
+    display: block;
+    color: #00bfff;
+}
+
+.birthday-contenido h2 {
+    margin-top: 30px;
+
+    font-size: clamp(30px, 5vw, 65px);
+
+    letter-spacing: 14px;
+
+    color: #8bdfff;
+
+    text-shadow:
+        0 0 10px #00bfff,
+        0 0 30px #0077ff;
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+button {
+    margin-top: 40px;
+
+    padding: 14px 32px;
+
+    background: rgba(0, 130, 255, 0.08);
+
+    color: white;
+
+    border: 1px solid #00aaff;
+
+    border-radius: 30px;
+
+    letter-spacing: 3px;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #0077ff;
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 20px #00aaff,
+        0 0 50px #0055ff;
+}
+
+
+/* =========================================
+   CARTA
+========================================= */
+
+.carta {
+    width: min(90%, 650px);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 45px;
+
+    text-align: center;
+
+    border: 1px solid rgba(0, 180, 255, 0.5);
+
+    border-radius: 18px;
+
+    background: rgba(1, 12, 27, 0.94);
+
+    box-shadow:
+        0 0 30px rgba(0, 130, 255, 0.25);
+
+    animation: cartaEntrada 1s ease;
+}
+
+
+/* =========================================
+   UN SOLO CORAZÓN
+========================================= */
+
+.unico-corazon {
+    font-size: 42px;
+
+    color: #00bfff;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 0 10px #00bfff,
+        0 0 25px #0066ff;
+}
+
+
+/* =========================================
+   TEXTO DE LA CARTA
+========================================= */
+
+.destinatario {
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    color: #54caff;
+}
+
+.carta h2 {
+    margin-top: 15px;
+
+    font-size: 28px;
+
+    color: white;
+}
+
+.separador {
+    width: 70px;
+
+    height: 2px;
+
+    margin: 20px auto 25px;
+
+    background: #00aaff;
+
+    box-shadow:
+        0 0 10px #00aaff;
+}
+
+.poema {
+    color: #d8edfa;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+.firma {
+    margin-top: 25px;
+
+    color: #65ceff;
+
+    font-size: 17px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   FOTO
+   SOLAMENTE UNA
+========================================= */
+
+#galeria {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+}
+
+#fotoUnica {
+    display: block;
+
+    width: 320px;
+    height: 420px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    border: 2px solid white;
+
+    box-shadow:
+        0 0 15px #00bfff,
+        0 0 35px #008cff,
+        0 0 70px #0055ff;
+
+    animation: fotoEntrada 1.5s ease;
+}
+
+
+/* =========================================
+   TÍTULO DE LA FOTO
+========================================= */
+
+.titulo {
+    position: absolute;
+
+    top: 30px;
+
+    text-align: center;
+
+    width: 100%;
+}
+
+.titulo p {
+    color: #54caff;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+}
+
+.titulo h2 {
+    margin-top: 12px;
+
+    color: white;
+
+    letter-spacing: 5px;
+
+    text-shadow:
+        0 0 15px #008cff;
+}
+
+
+/* =========================================
+   MENSAJE FINAL
+========================================= */
+
+.mensaje-final {
+    position: absolute;
+
+    bottom: 25px;
+
+    text-align: center;
+
+    width: 100%;
+}
+
+.mensaje-final p {
+    color: #b9e7fa;
+
+    font-size: 13px;
+}
+
+.mensaje-final h3 {
+    margin-top: 10px;
+
+    color: #00bfff;
+
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 15px #008cff;
+}
+
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+@keyframes pulso {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+
+@keyframes cartaEntrada {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(70px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes fotoEntrada {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.5)
+            translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    #contador {
+        font-size: 100px;
+    }
+
+    .inicio-contenido p {
+        font-size: 9px;
+
+        letter-spacing: 4px;
+    }
+
+    .birthday-contenido h1 {
+        font-size: 55px;
+
+        letter-spacing: 4px;
+    }
+
+    .birthday-contenido h2 {
+        font-size: 30px;
+
+        letter-spacing: 8px;
+    }
+
+    .carta {
+        padding: 25px;
+
+        width: 92%;
+    }
+
+    .poema {
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+    #fotoUnica {
+        width: 280px;
+
+        height: 370px;
+    }
+
+    .titulo {
+        top: 20px;
+    }
+
+    .titulo h2 {
+        font-size: 20px;
+
+        letter-spacing: 3px;
+    }
+
+    .mensaje-final {
+        bottom: 15px;
+    }
+
+}
